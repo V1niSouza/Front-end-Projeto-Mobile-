@@ -87,7 +87,7 @@ export default function Login(){
         botaologin:{
             backgroundColor:'#5EB1BF',
             position: 'relative',
-            left: RFValue(30),
+            left: RFValue(40),
             top: RFValue(40),
             height: RFValue(50),
             width: RFValue(270),
@@ -97,7 +97,7 @@ export default function Login(){
         botaocadastro:{
             backgroundColor:'#042A2B',
             position: 'relative',
-            left: RFValue(30),
+            left: RFValue(40),
             top: RFValue(60),
             height: RFValue(50),
             width: RFValue(270),
