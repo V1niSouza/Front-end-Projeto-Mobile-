@@ -10,114 +10,110 @@ import { RFValue } from 'react-native-responsive-fontsize';
 
 export default function Login(){
 
-    const navigation = useNavigation();
-        return(
-            <View style={styles.container}>
-                
-                    <View style={[styles.subContainer, { flex: 0.3, backgroundColor: '#FFF'}]}>
-                        <Image source={require("../../imgs/logo.png")} style={{ width: RFValue(80), height: RFValue(70), position: 'relative', top: RFValue(130), left: RFValue(20), }}></Image>
-                        <Text style={styles.logotexto}>JR. IMPORST_013</Text>
-                    </View>
-                    <View style={[styles.subContainer, { flex: 0.5 }]}>
-                        
-                            <Ionicons name="mail-outline" size={RFValue(22)} style={{left: RFValue(20), top: RFValue(40), position:"relative"}}></Ionicons>
-                            <TextInput style={styles.CompoEmail} placeholder="Insira seu Email"></TextInput>
+		const navigation = useNavigation();
+				return(
+						<View style={styles.container}>
+										<View style={[styles.logoDiv]}>
+											<Image style={[styles.logoImg]} source={require("../../imgs/logo.png")}></Image>
+											<Text style={styles.logotexto}>JR. IMPORST_013</Text>
+										</View>
+										<View style={[styles.subContainer]}>
+											<View style={[styles.DivInput]}>
+												<View style={[styles.InputIcon]}>
+													<Ionicons size={20} name="mail-outline"></Ionicons>
+												</View>
+												<TextInput style={styles.Input} placeholder="Insira seu e-mail"></TextInput>
+											</View>       
 
-                            <Ionicons name="lock-closed-outline" size={RFValue(22)} style={{left: RFValue(20), top: RFValue(40), position:"relative"}}></Ionicons>
-                            <TextInput style={styles.CompoSenha} placeholder="Insira sua Senha"></TextInput>
+											<View style={[styles.DivInput]}>
+												<View style={[styles.InputIcon]}>
+													<Ionicons size={20} name="lock-closed-outline"></Ionicons>
+												</View>
+												<TextInput style={styles.Input} placeholder="Insira sua senha"></TextInput>
+											</View>
 
-                            <TouchableHighlight  title="Login..." onPress={() => navigation.navigate(Home)} style={styles.botaologin}>
-                                <Text style={styles.TextoBotao}>ACESSAR</Text>
-                            </TouchableHighlight>
+											<TouchableHighlight title="Login..." onPress={() => navigation.navigate(Home)} style={[styles.botao, styles.botaologin]}>
+													<Text style={styles.TextoBotao}>ACESSAR</Text>
+											</TouchableHighlight>
 
-                            <TouchableHighlight  title="Cadastro..." onPress={() => navigation.navigate(Cadastro)} style={styles.botaocadastro}>
-                                <Text style={styles.TextoBotao2}>CRIAR UMA CONTA</Text>
-                            </TouchableHighlight>
-                    </View>
-                
-            </View>
-        );
-    }
+											<TouchableHighlight title="Cadastro..." onPress={() => navigation.navigate(Cadastro)} style={[styles.botao, styles.botaocadastro]}>
+													<Text style={styles.TextoBotao}>CRIAR UMA CONTA</Text>
+											</TouchableHighlight>
+										</View>
+								
+						</View>
+				);
+		}
 
-    const styles = StyleSheet.create({
-        container:{
-            flex:1,
-            paddingBottom: getBottomSpace(),
-            backgroundColor: '#fff'
-        },
-        subContainer:{
-            flex:0.5,
-            backgroundColor: '#DCDC'
-        },
-        logotexto:{
-            color: "#000",
-            fontWeight: 'bold',
-            fontSize: RFValue(30),
-            position: 'relative',
-            left: RFValue(90),
-            top: RFValue(90)
-        },
-        CompoEmail: {
-            backgroundColor: '#E0E0E0',
-            borderRadius: RFValue(9),
-            margin: RFValue(2),
-            padding: RFValue(18),
-            width: RFValue(250),
-            color: '#000',
-            fontSize: RFValue(14),
-            borderColor: "#20232a",
-            position: 'relative',
-            left: RFValue(45)
-        },
+		const styles = StyleSheet.create({
+				container:{
+						display: 'flex',
+						alignItems: 'center',
+						paddingTop: '20%',
+						width: '100%',
+						height: '100%'
+				},
+				subContainer:{
+						padding: 10,
+						display: 'flex',
+						alignItems: 'center',
+						top: '15%',
+						width: '80%'
+						// backgroundColor: '#DCDC',
+				},
+				logoImg: {
+						width: 150,
+						height: 150
+				},
+				logoDiv: {
+						display: 'flex',
+						alignItems: 'center',
+						top: '10%',
+						width: '100%',
+						// backgroundColor: 'red'
+				},
+				logotexto: {
+						marginTop: 10,
+						color: "#000",
+						fontWeight: 'bold',
+				},
+				InputIcon: {
+						// backgroundColor: 'yellow',
+						marginRight: 10
+				},
+				DivInput: {
+						display: 'flex',
+						alignItems: 'center',
+						marginBottom: 25,
+						flexDirection: 'row',
+						width: '100%',
+						// backgroundColor: 'purple'
+				},
+				Input: {
+						padding: 5,
+						paddingLeft: 10,
+						borderRadius: 10,
+						width: '89.6%',
+						backgroundColor: '#E0E0E0',
+						color: '#000',
+						borderColor: "#20232a",
+				},
+				botao: {
+						padding: 10,
+						borderRadius: 10,
+						marginBottom: 15,
+						width: '100%'
+				},	
+				botaologin:{
+						backgroundColor:'#5EB1BF',
+						marginTop: '10%'
+				},
+				botaocadastro:{
+						backgroundColor:'#042A2B',
+				},
+				TextoBotao:{
+						textAlign: 'center',
+						color: '#fff',
+				},
 
-        CompoSenha: {
-            backgroundColor: '#E0E0E0',
-            borderRadius: RFValue(9),
-            margin: RFValue(2),
-            marginTop: RFValue(0),
-            padding: RFValue(18),
-            width: RFValue(250),
-            color: '#000',
-            fontSize: RFValue(14),
-            borderColor: "#20232a",
-            position: 'relative',
-            left: RFValue(45)
-        },
-    
-        botaologin:{
-            backgroundColor:'#5EB1BF',
-            position: 'relative',
-            left: RFValue(40),
-            top: RFValue(40),
-            height: RFValue(50),
-            width: RFValue(270),
-            borderRadius: RFValue(18),
-        },
-
-        botaocadastro:{
-            backgroundColor:'#042A2B',
-            position: 'relative',
-            left: RFValue(40),
-            top: RFValue(60),
-            height: RFValue(50),
-            width: RFValue(270),
-            borderRadius: RFValue(18),
-        },
-
-        TextoBotao:{
-            color: '#fff',
-            fontSize: RFValue(16),
-            position: 'relative',
-            left: RFValue(105),
-            top: RFValue(15),
-        },
-
-        TextoBotao2:{
-            color: '#fff',
-            fontSize: RFValue(16),
-            position: 'relative',
-            left: RFValue(85),
-            top: RFValue(15),
-        },
-
-    });
+		});
