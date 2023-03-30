@@ -14,11 +14,11 @@ export default function Login(){
         return(
             <View style={styles.container}>
                 <SafeAreaView style={{ flex: 1}}>
-                    <View style={[styles.subContainer, { flex: 0.4 }]}>
+                    {/* <View style={[styles.subContainer, { flex: 0.4 }]}>
                         <Image source={require("../../imgs/logo.png")} style={{ width: RFValue(80), height: RFValue(70), position: 'relative', top: RFValue(130), left: RFValue(20), }}></Image>
                         <Text style={styles.logotexto}>JR. IMPORST_013</Text>
-                    </View>
-                    <View style={[styles.subContainer, { flex: 0.6 }]}>
+                    </View> */}
+                    <View style={[styles.subContainer]}>
                         
                             <Ionicons name="mail-outline" size={RFValue(22)} style={{left: RFValue(20), top: RFValue(40), position:"relative"}}></Ionicons>
                             <TextInput style={styles.CompoEmail} placeholder="Insira seu Email"></TextInput>
@@ -41,13 +41,26 @@ export default function Login(){
 
     const styles = StyleSheet.create({
         container:{
-            flex:1,
-            paddingBottom: getBottomSpace(),
-            backgroundColor: '#fff'
+            // flex:1,
+            // paddingBottom: getBottomSpace(),
+            display: 'flex',
+            flexDirection: 'column',
+            alignContent: 'center',
+            alignItems: 'center',
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'blue'
         },
         subContainer:{
-            flex:0.5,
-            backgroundColor: '#fff'
+            // flex:0.5,
+            width: '20%',
+            height: '50%',
+            top: '50%',
+            display: 'flex',
+            flexWrap: 'wrap',
+            flexDirection: 'row',
+            alignItems: 'center',
+            backgroundColor: 'red'
         },
         divlogo:{
             position: 'relative',
