@@ -15,15 +15,15 @@ export default function Login(){
             <View style={styles.container}>
                 <SafeAreaView style={{ flex: 1}}>
                     <View style={[styles.subContainer, { flex: 0.4 }]}>
-                        <Image source={require("../../imgs/logo.png")} style={{ width: 90, height: 90, position: 'relative', top: RFValue(130), left: RFValue(20), }}></Image>
+                        <Image source={require("../../imgs/logo.png")} style={{ width: RFValue(80), height: RFValue(70), position: 'relative', top: RFValue(130), left: RFValue(20), }}></Image>
                         <Text style={styles.logotexto}>JR. IMPORST_013</Text>
                     </View>
                     <View style={[styles.subContainer, { flex: 0.6 }]}>
                         
-                            <Ionicons name="mail-outline" size={30} style={{left: RFValue(20), top: RFValue(40), position:"relative"}}></Ionicons>
+                            <Ionicons name="mail-outline" size={RFValue(22)} style={{left: RFValue(20), top: RFValue(40), position:"relative"}}></Ionicons>
                             <TextInput style={styles.CompoEmail} placeholder="Insira seu Email"></TextInput>
 
-                            <Ionicons name="lock-closed-outline" size={30} style={{left: RFValue(20), top: RFValue(40), position:"relative"}}></Ionicons>
+                            <Ionicons name="lock-closed-outline" size={RFValue(22)} style={{left: RFValue(20), top: RFValue(40), position:"relative"}}></Ionicons>
                             <TextInput style={styles.CompoSenha} placeholder="Insira sua Senha"></TextInput>
 
                             <TouchableHighlight  title="Login..." onPress={() => navigation.navigate(Home)} style={styles.botaologin}>
@@ -77,7 +77,7 @@ export default function Login(){
         CompoEmail: {
             backgroundColor: '#E0E0E0',
             borderRadius: 26,
-            margin: '2%',
+            margin: RFValue(2),
             padding: RFValue(18),
             width: RFValue(250),
             color: '#000',
@@ -90,8 +90,8 @@ export default function Login(){
         CompoSenha: {
             backgroundColor: '#E0E0E0',
             borderRadius: 26,
-            margin: '2%',
-            marginTop: '0%',
+            margin: RFValue(2),
+            marginTop: RFValue(0),
             padding: RFValue(18),
             width: RFValue(250),
             color: '#000',
@@ -125,16 +125,16 @@ export default function Login(){
             color: '#fff',
             fontSize: 23,
             position: 'relative',
-            left:'38%',
-            top:'30%',
+            left: RFValue(105),
+            top: RFValue(15),
         },
 
         TextoBotao2:{
             color: '#fff',
             fontSize: 23,
             position: 'relative',
-            left:'32%',
-            top:'30%',
+            left: RFValue(85),
+            top: RFValue(15),
         },
 
     });
