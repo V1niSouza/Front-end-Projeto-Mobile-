@@ -13,8 +13,8 @@ export default function Login(){
     const navigation = useNavigation();
         return(
             <View style={styles.container}>
-                <SafeAreaView style={{ flex: 1}}>
-                    <View style={[styles.subContainer, { flex: 0.4 }]}>
+                
+                    <View style={[styles.subContainer, { flex: 0.4, backgroundColor: '#FFF'}]}>
                         <Image source={require("../../imgs/logo.png")} style={{ width: RFValue(80), height: RFValue(70), position: 'relative', top: RFValue(130), left: RFValue(20), }}></Image>
                         <Text style={styles.logotexto}>JR. IMPORST_013</Text>
                     </View>
@@ -34,7 +34,7 @@ export default function Login(){
                                 <Text style={styles.TextoBotao2}>CRIAR UMA CONTA</Text>
                             </TouchableHighlight>
                     </View>
-                </SafeAreaView>
+                
             </View>
         );
     }
@@ -47,15 +47,7 @@ export default function Login(){
         },
         subContainer:{
             flex:0.5,
-            backgroundColor: '#fff'
-        },
-        divlogo:{
-            position: 'relative',
-            top: '10%',
-            left: '5%',
-            backgroundColor: '#fff',
-            padding: '1%',
-            width: '90%'
+            backgroundColor: '#DCDC'
         },
         logotexto:{
             color: "#000",
@@ -65,18 +57,9 @@ export default function Login(){
             left: RFValue(90),
             top: RFValue(90)
         },
-        divlogin:{
-            position: 'relative',
-            top: '20%',
-            left: '5%',
-            backgroundColor: '#fff',
-            padding: '1%',
-            width: '90%'
-        },
-
         CompoEmail: {
             backgroundColor: '#E0E0E0',
-            borderRadius: 26,
+            borderRadius: RFValue(9),
             margin: RFValue(2),
             padding: RFValue(18),
             width: RFValue(250),
@@ -89,7 +72,7 @@ export default function Login(){
 
         CompoSenha: {
             backgroundColor: '#E0E0E0',
-            borderRadius: 26,
+            borderRadius: RFValue(9),
             margin: RFValue(2),
             marginTop: RFValue(0),
             padding: RFValue(18),
@@ -108,7 +91,7 @@ export default function Login(){
             top: RFValue(40),
             height: RFValue(50),
             width: RFValue(270),
-            borderRadius: 25,
+            borderRadius: RFValue(18),
         },
 
         botaocadastro:{
@@ -118,12 +101,12 @@ export default function Login(){
             top: RFValue(60),
             height: RFValue(50),
             width: RFValue(270),
-            borderRadius: 25,
+            borderRadius: RFValue(18),
         },
 
         TextoBotao:{
             color: '#fff',
-            fontSize: 23,
+            fontSize: RFValue(16),
             position: 'relative',
             left: RFValue(105),
             top: RFValue(15),
@@ -131,7 +114,7 @@ export default function Login(){
 
         TextoBotao2:{
             color: '#fff',
-            fontSize: 23,
+            fontSize: RFValue(16),
             position: 'relative',
             left: RFValue(85),
             top: RFValue(15),
