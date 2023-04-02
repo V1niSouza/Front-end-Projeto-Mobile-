@@ -12,7 +12,7 @@ export default function Login(){
 
 		const navigation = useNavigation();
 				return(
-						<View style={styles.container}>
+						<View style={styles.container}>    
 										<View style={[styles.logoDiv]}>
 											<Image style={[styles.logoImg]} source={require("../../imgs/logo.png")}></Image>
 											<Text style={styles.logotexto}>JR. IMPORST_013</Text>
