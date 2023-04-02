@@ -10,6 +10,7 @@ import Listaprodu from './telas/listaproduto';
 import Login from './telas/login';
 import Produt from './telas/produto';
 import Avalia from './telas/avaliacao';
+import Cadastro2 from './telas/cadastro2';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,8 +19,34 @@ export default function App() {
 <NavigationContainer>
   <Stack.Navigator>
 
+      <Stack.Screen
+          name="Cadastro"
+          component={Cadastro}
+          options={{
+            title: 'Tela Cadastro',
+            headerStyle:{
+              backgroundColor: '#12ed',
+            },   
+            headerShown: false         
+          }}>
+       </Stack.Screen>
 
-        <Stack.Screen
+       
+      <Stack.Screen
+          name="Cadastro2"
+          component={Cadastro2}
+          options={{
+            title: 'Tela Cadastro',
+            headerStyle:{
+              backgroundColor: '#12ed',
+            },   
+            headerShown: false         
+          }}>
+       </Stack.Screen>
+
+
+       
+  <Stack.Screen
             name="Login"
             component={Login}
             options={{
@@ -42,22 +69,6 @@ export default function App() {
             headerShown: true         
           }}>
         </Stack.Screen>
-
-
-
-        <Stack.Screen
-          name="Cadastro"
-          component={Cadastro}
-          options={{
-            title: 'Tela Cadastro',
-            headerStyle:{
-              backgroundColor: '#12ed',
-            },   
-            headerShown: false         
-          }}>
-       </Stack.Screen>
-  
-
 
         <Stack.Screen
           name="Carrinho"

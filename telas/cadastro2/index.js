@@ -1,18 +1,14 @@
 import React from 'react';
 import { useNavigation} from '@react-navigation/native';
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, TouchableHighlight } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
-import Cadastro2 from '../cadastro2';
-import { RFValue } from 'react-native-responsive-fontsize';
 
 
-export default function Cadastro(){
+export default function Cadastro2(){
     const navigation = useNavigation();
         return(
             <View style={styles.container}>
-                 <View style={styles.desconTopo}></View>
-
                 <View style={styles.DivHeader}>
                     <Text style={styles.TextHeader}>CADASTRE-SE</Text>
                     <TouchableOpacity style={styles.corda}></TouchableOpacity>
@@ -52,14 +48,6 @@ export default function Cadastro(){
             width: '100%',
             height: '100%'
         },
-        desconTopo:{
-            display: 'flex',
-            top: '0%',
-            width: '100%',
-            height: '3%',
-            alignItems: 'center',
-            backgroundColor: '#087E8B',
-        },
         DivHeader:{
             display: 'flex',
             top: '0%',
@@ -72,29 +60,27 @@ export default function Cadastro(){
             display: 'flex',
             color: '#fff',
             fontWeight: '900',
-            fontSize: RFValue(30),
+            fontSize: '200%',
             fontStyle: 'italic',
-            position: 'absolute',   
-            top: '20%'
+            position: 'relative',
+            top: '5%',
         },
         corda:{
             display: 'flex',
+            position: 'relative',
             backgroundColor: '#000',
             left: '0%',
-            position: 'relative',
-            marginTop: '8%',
-            height: '1.1%',
+            top: '6%',
+            height: '1.9%',
             width: '100%',
-            position: 'absolute',   
-            top: '40%'
         },
         SubContainer:{
             padding: 10,
             display: 'flex',
             alignItems: 'center',
             top: '2%',
-            width: '100%',
-            height: '90%',
+            width: '92%',
+            height: '87%',
             backgroundColor: '#DCDC',
          },
          DivInput: {
