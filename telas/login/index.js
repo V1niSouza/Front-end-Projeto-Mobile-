@@ -4,9 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons'
 import Cadastro from '../cadastro';
 import Home from '../home';
-
-
-
+import * as SecureStore from 'expo-secure-store';
 
 export default function Login(){
   const mensagemDadosIncorretos = (message) => Alert.alert(
@@ -21,7 +19,7 @@ export default function Login(){
     });
 
 		const navigation = useNavigation();
-    const url = 'http://192.168.0.107:5000/login';
+    const url = 'http://192.168.0.107:5000';
     const [senha, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
@@ -34,7 +32,7 @@ export default function Login(){
 
         const data = {email, senha}
 
-        const req = await fetch(url, {
+        const req = await fetch(`${url}/login`, {
           method: 'POST',
           headers: { 'Content-type': 'application/json' },
           body: JSON.stringify(data),
@@ -47,8 +45,10 @@ export default function Login(){
           setLoading(false)
           return mensagemDadosIncorretos(res.message);
         }
+
+        await SecureStore.setItemAsync('jwt_token', res.token)
+
         setLoading(false)
-        console.log('Logou', res);
         navigation.navigate(Home)
       } catch (error) {
         setLoading(false)
