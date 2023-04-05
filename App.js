@@ -19,6 +19,18 @@ export default function App() {
 <NavigationContainer>
   <Stack.Navigator>
 
+  <Stack.Screen
+          name="Cadastro"
+          component={Cadastro}
+          options={{
+            title: 'Tela Cadastro',
+            headerStyle:{
+              backgroundColor: '#12ed',
+            },   
+            headerShown: false         
+          }}>
+       </Stack.Screen>
+
           <Stack.Screen
                     name="Login"
                     component={Login}
@@ -30,17 +42,7 @@ export default function App() {
                     headerShown: false         
                     }}>
                 </Stack.Screen>
-      <Stack.Screen
-          name="Cadastro"
-          component={Cadastro}
-          options={{
-            title: 'Tela Cadastro',
-            headerStyle:{
-              backgroundColor: '#12ed',
-            },   
-            headerShown: false         
-          }}>
-       </Stack.Screen>
+
 
        
       <Stack.Screen
