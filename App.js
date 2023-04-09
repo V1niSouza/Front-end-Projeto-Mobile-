@@ -20,18 +20,6 @@ export default function App() {
   <Stack.Navigator>
 
     <Stack.Screen
-      name="Login"
-      component={Login}
-      options={{
-      title: 'Tela Login',
-      headerStyle:{
-        backgroundColor: '#12ed',
-      },   
-      headerShown: false         
-      }}>
-    </Stack.Screen>
-
-    <Stack.Screen
       name="Cadastro"
       component={Cadastro}
       options={{
@@ -43,6 +31,18 @@ export default function App() {
       }}>
     </Stack.Screen>
        
+    <Stack.Screen
+      name="Login"
+      component={Login}
+      options={{
+      title: 'Tela Login',
+      headerStyle:{
+        backgroundColor: '#12ed',
+      },   
+      headerShown: false         
+      }}>
+    </Stack.Screen>
+
     <Stack.Screen
       name="Cadastro2"
       component={Cadastro2}

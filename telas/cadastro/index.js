@@ -5,14 +5,15 @@ import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
 import Cadastro2 from '../cadastro2';
 import { RFValue } from 'react-native-responsive-fontsize';
+import { KeyboardAvoidingView } from 'react-native';
+import { ScrollView } from 'react-native';
 
 
 export default function Cadastro(){
     const navigation = useNavigation();
         return(
-            <View style={styles.container}>
+            <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={styles.container}>
                  <View style={styles.desconTopo}></View>
-
                 <View style={styles.DivHeader}>
                     <TouchableOpacity style={styles.Lgopequena}><Image style={[styles.logoImg]} source={require("../../imgs/logo.png")}></Image></TouchableOpacity>
                     <Text style={styles.TextHeader}>CADASTRE-SE</Text>
@@ -54,43 +55,35 @@ export default function Cadastro(){
                     <Text style={styles.textdesc}>CONFIRME SUA SENHA:</Text>
                     <TextInput style={styles.Input} placeholder="confirme sua senha"></TextInput>
                 </View>
-                <View style={styles.DivInput}>
+                <View style={styles.DivInput02}>
                 <TouchableHighlight title="Cadastro..." onPress={() => navigation.navigate(Cadastro)} style={[styles.botao, styles.botaocadastro]}>
 				    <Text style={styles.TextoBotao}>CONTINUAR</Text>
 				</TouchableHighlight>
                 </View>
             </View>
 
-            </View>
+            </KeyboardAvoidingView>
     );
 }
     const styles = StyleSheet.create({
 
         container:{
-            alignItems: 'center',
-            paddingTop: '0%',
-            width: '100%',
-            height: '100%',
+            flex: 1,
             backgroundColor: '#fff'
         },
         desconTopo:{
-            display: 'flex',
             top: '0%',
-            width: '100%',
-            height: '3%',
+            flex: 0.02,
             alignItems: 'center',
             backgroundColor: '#087E8B',
         },
         DivHeader:{
-            display: 'flex',
             top: '0%',
-            width: '100%',
-            height: '10%',
+            flex: 0.09,
             alignItems: 'center',
             backgroundColor: '#087E8B',
         },  
         TextHeader:{
-            display: 'flex',
             color: '#fff',
             fontWeight: '900',
             fontSize: RFValue(30),
@@ -99,7 +92,6 @@ export default function Cadastro(){
             top: '20%'
         },
         Lgopequena:{
-            display: 'flex',
             position: 'absolute',   
             top: '25%',
             left: '3%',
@@ -116,7 +108,6 @@ export default function Cadastro(){
             left: '10%',
         },
         corda:{
-            display: 'flex',
             backgroundColor: '#000',
             left: '0%',
             position: 'relative',
@@ -127,38 +118,49 @@ export default function Cadastro(){
             top: '40%'
         },
         SubContainer:{
-            padding: 0,
-            alignItems: 'center',
-            top: '5%',
-            width: '100%',
-            height: '90%',
+            flex: 0.89,
             backgroundColor: '#fff',
          },
          DivInput: {
             alignItems: 'center',
-            marginTop: 10,
-            marginLeft: 0,
-            width: '100%',
-            height: '13%',
-           // backgroundColor: 'purple'
+            marginTop: '3%',
+            top: '5%',
+            left: '1%',
+            flex: 0.15,
+            width: '98%',
+            borderColor: '#DCDCDC',
+            borderWidth: 0.4,
+            borderRadius: 20
+            //backgroundColor: 'purple'
          },
+
+         DivInput02: {
+            alignItems: 'center',
+            marginTop: '3%',
+            top: '5%',
+            left: '5%',
+            flex: 0.15,
+            width: '90%',
+            //backgroundColor: 'purple'
+         },
+
          InputIcon: {
             // backgroundColor: 'yellow',
             position: 'absolute',
             top: '7%',
-            left: '2%'
+            left: '8%'
          },
          Input: {
-            borderRadius: RFValue(16),
+            borderRadius: RFValue(13),
             width: '85%',
-            height: '55%',
+            height: '50%',
             backgroundColor: '#E0E0E0',
             color: '#000',
             borderColor: "#20232a",
             position: 'absolute',
             left:'7%',
             top: '30%',
-            fontSize: RFValue(11)
+            fontSize: RFValue(10),
          },
          textdesc:{
             display: 'flex',
@@ -168,13 +170,13 @@ export default function Cadastro(){
             fontStyle: 'italic',
             position: 'absolute',   
             top: '6%',
-            left: '10%'
+            left: '14%'
          },
          botao: {
             padding: 10,
             borderRadius: RFValue(16),
             position: 'absolute',
-            top: '1%',
+            top: '20%',
             width: '68%',
             height: '45%'
         },	
