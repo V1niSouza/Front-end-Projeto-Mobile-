@@ -1,11 +1,11 @@
 import {React, useState} from 'react';
-import { StyleSheet, View, Text, TextInput, Image, TouchableHighlight, Alert, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Image, TouchableHighlight, Alert, ActivityIndicator, KeyboardAvoidingView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons'
 import Cadastro from '../cadastro';
 import Home from '../home';
 import * as SecureStore from 'expo-secure-store';
-//import { REACT_APP_API_URL } from '@env';
+import { REACT_APP_API_URL } from '@env';
 
 export default function Login(){
   const mensagemAlerta = (message) => {
@@ -61,7 +61,7 @@ export default function Login(){
   }
 
   return(
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container}>
 
       <View style={[styles.logoDiv]}>
         <Image style={[styles.logoImg]} source={require("../../imgs/logo.png")}></Image>
@@ -94,7 +94,7 @@ export default function Login(){
         </TouchableHighlight>
       </View>
         
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 

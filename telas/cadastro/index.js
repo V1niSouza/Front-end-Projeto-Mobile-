@@ -1,192 +1,216 @@
 import React from 'react';
 import { useNavigation} from '@react-navigation/native';
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, TouchableHighlight, Image } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, TouchableHighlight, Image, ActivityIndicator } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
 import Cadastro2 from '../cadastro2';
-import { RFValue } from 'react-native-responsive-fontsize';
 import { KeyboardAvoidingView } from 'react-native';
-import { ScrollView } from 'react-native';
+import { RFValue } from 'react-native-responsive-fontsize';
+
 
 
 export default function Cadastro(){
-    const navigation = useNavigation();
         return(
-            <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={styles.container}>
-                 <View style={styles.desconTopo}></View>
-                <View style={styles.DivHeader}>
-                    <TouchableOpacity style={styles.Lgopequena}><Image style={[styles.logoImg]} source={require("../../imgs/logo.png")}></Image></TouchableOpacity>
-                    <Text style={styles.TextHeader}>CADASTRE-SE</Text>
-                    <TouchableOpacity style={styles.corda}></TouchableOpacity>
-                </View>
-            <View style={styles.SubContainer}>
-                <View style={styles.DivInput}>
-                 <View style={[styles.InputIcon]}>
-				    <Ionicons size={24} name="person-outline"></Ionicons>
-				</View>
-                    <Text style={styles.textdesc}>NOME:</Text>
-                    <TextInput style={styles.Input} placeholder="Insira seu nome"></TextInput>
-                </View>
-                <View style={styles.DivInput}>
-                <View style={[styles.InputIcon]}>
-				    <Ionicons size={24} name="calendar-outline"></Ionicons>
-				</View>
-                    <Text style={styles.textdesc}>DATA DE NASCIMENTO:</Text>
-                    <TextInput style={styles.Input} placeholder="Insira sua data de nascimento"></TextInput>
-                </View>
-                <View style={styles.DivInput}>
-                <View style={[styles.InputIcon]}>
-				    <Ionicons size={24} name="mail-outline"></Ionicons>
-				</View>
-                    <Text style={styles.textdesc}>EMAIL:</Text>
-                    <TextInput style={styles.Input} placeholder="Insira seu email"></TextInput>
-                </View>
-                <View style={styles.DivInput}>
-                <View style={[styles.InputIcon]}>
-				    <Ionicons size={24} name="lock-closed-outline"></Ionicons>
-				</View>
-                    <Text style={styles.textdesc}>SENHA:</Text>
-                    <TextInput style={styles.Input} placeholder="Insira sua senha"></TextInput>
-                </View>
-                <View style={styles.DivInput}>
-                <View style={[styles.InputIcon]}>
-				    <Ionicons size={24} name="lock-closed-outline"></Ionicons>
-				</View>
-                    <Text style={styles.textdesc}>CONFIRME SUA SENHA:</Text>
-                    <TextInput style={styles.Input} placeholder="confirme sua senha"></TextInput>
-                </View>
-                <View style={styles.DivInput02}>
-                <TouchableHighlight title="Cadastro..." onPress={() => navigation.navigate(Cadastro)} style={[styles.botao, styles.botaocadastro]}>
-				    <Text style={styles.TextoBotao}>CONTINUAR</Text>
-				</TouchableHighlight>
-                </View>
+          <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={styles.container}>
+
+            <View style={styles.DivHeader}>
+              <View style={styles.SubDivHeader} >
+                <TouchableOpacity style={styles.DivLogo}>
+                  <Image style={[styles.logoImg]} source={require("../../imgs/logo.png")}></Image>
+                </TouchableOpacity>
+                <Text style={styles.TextHeader}>CADASTRE-SE</Text>
+              </View>
+              <TouchableOpacity style={styles.corda}></TouchableOpacity>
             </View>
 
-            </KeyboardAvoidingView>
+            <View style={[styles.subContainer]}>
+
+              <View style={styles.InputDesc}>
+                <View style={[styles.InputIcon]}>
+                    <Ionicons size={24} name="person-outline"></Ionicons>
+                </View>
+                <Text style={styles.InputDescText}>
+                  NOME:
+                </Text>
+              </View>
+              <View style={[styles.DivInput]}>
+                <TextInput onChangeText={(email) => setEmail(email)} style={styles.Input} placeholder="Vinicius Souza..."></TextInput>
+              </View>       
+
+              <View style={styles.InputDesc}>
+                <View style={[styles.InputIcon]}>
+                  <Ionicons size={24} name="mail-outline"></Ionicons>
+                </View>
+                <Text style={styles.InputDescText}>
+                  E-MAIL:
+                </Text>
+              </View>
+              <View style={[styles.DivInput]}>
+                <TextInput style={styles.Input} placeholder="exemplo@exp"></TextInput>
+              </View>
+
+              <View style={styles.InputDesc}>
+                <View style={[styles.InputIcon]}>
+                  <Ionicons size={24} name="call-outline"></Ionicons>
+                </View>
+                <Text style={styles.InputDescText}>
+                  TELEFONE:
+                </Text>
+              </View>
+              <View style={[styles.DivInput]}>
+                <TextInput inputMode='numeric' style={styles.Input} placeholder="DDD + número"></TextInput>
+              </View>
+
+              <View style={styles.InputDesc}>
+                <View style={[styles.InputIcon]}>
+                  <Ionicons size={24} name="document-text-outline"></Ionicons>
+                </View>
+                <Text style={styles.InputDescText}>
+                  CPF:
+                </Text>
+              </View>
+              <View style={[styles.DivInput]}>
+                <TextInput inputMode='numeric' style={styles.Input} placeholder="Apenas os números"></TextInput>
+              </View>
+
+              <View style={styles.InputDesc}>
+                <View style={[styles.InputIcon]}>
+                  <Ionicons size={20} name="lock-closed-outline"></Ionicons>
+                </View>
+                <Text style={styles.InputDescText}>
+                  SENHA:
+                </Text>
+              </View>
+              <View style={[styles.DivInput]}>
+                <TextInput style={styles.Input} placeholder="De 4 a 15 dígitos"></TextInput>
+              </View>
+
+              <View style={styles.InputDesc}>
+                <View style={[styles.InputIcon]}>
+                  <Ionicons size={20} name="lock-open-outline"></Ionicons>
+                </View>
+                <Text style={styles.InputDescText}>
+                  CONFIRME SUA SENHA:
+                </Text>
+              </View>
+              <View style={[styles.DivInput]}>
+                <TextInput style={styles.Input} placeholder="Confirme sua senha"></TextInput>
+              </View>
+
+              <TouchableHighlight title="Cadastro..." style={[styles.botao, styles.botaocadastro]}>
+                <Text style={styles.TextoBotao}>CRIAR CONTA</Text>
+              </TouchableHighlight>
+
+            </View>
+
+          </KeyboardAvoidingView>
     );
 }
     const styles = StyleSheet.create({
 
-        container:{
-            flex: 1,
-            backgroundColor: '#fff'
-        },
-        desconTopo:{
-            top: '0%',
-            flex: 0.02,
-            alignItems: 'center',
-            backgroundColor: '#087E8B',
-        },
-        DivHeader:{
-            top: '0%',
-            flex: 0.09,
-            alignItems: 'center',
-            backgroundColor: '#087E8B',
-        },  
-        TextHeader:{
-            color: '#fff',
-            fontWeight: '900',
-            fontSize: RFValue(30),
-            fontStyle: 'italic',
-            position: 'absolute',   
-            top: '20%'
-        },
-        Lgopequena:{
-            position: 'absolute',   
-            top: '25%',
-            left: '3%',
-            width: RFValue(32),
-            height: RFValue(32),
-            borderRadius: RFValue(34),
-            borderWidth: RFValue(2)
-        },
-        logoImg:{
-            width: RFValue(24),
-            height: RFValue(24),
-            position: 'absolute',   
-            top: '-10%',
-            left: '10%',
-        },
-        corda:{
-            backgroundColor: '#000',
-            left: '0%',
-            position: 'relative',
-            marginTop: '8%',
-            height: '1.1%',
-            width: '100%',
-            position: 'absolute',   
-            top: '40%'
-        },
-        SubContainer:{
-            flex: 0.89,
-            backgroundColor: '#fff',
-         },
-         DivInput: {
-            alignItems: 'center',
-            marginTop: '3%',
-            top: '5%',
-            left: '1%',
-            flex: 0.15,
-            width: '98%',
-            borderColor: '#DCDCDC',
-            borderWidth: 0.4,
-            borderRadius: 20
-            //backgroundColor: 'purple'
-         },
-
-         DivInput02: {
-            alignItems: 'center',
-            marginTop: '3%',
-            top: '5%',
-            left: '5%',
-            flex: 0.15,
-            width: '90%',
-            //backgroundColor: 'purple'
-         },
-
-         InputIcon: {
-            // backgroundColor: 'yellow',
-            position: 'absolute',
-            top: '7%',
-            left: '8%'
-         },
-         Input: {
-            borderRadius: RFValue(13),
-            width: '85%',
-            height: '50%',
-            backgroundColor: '#E0E0E0',
-            color: '#000',
-            borderColor: "#20232a",
-            position: 'absolute',
-            left:'7%',
-            top: '30%',
-            fontSize: RFValue(10),
-         },
-         textdesc:{
-            display: 'flex',
-            color: '#000',
-            fontWeight: '600',
-            fontSize: RFValue(13),
-            fontStyle: 'italic',
-            position: 'absolute',   
-            top: '6%',
-            left: '14%'
-         },
-         botao: {
-            padding: 10,
-            borderRadius: RFValue(16),
-            position: 'absolute',
-            top: '20%',
-            width: '68%',
-            height: '45%'
-        },	
-         botaocadastro:{
-            backgroundColor:'#5EB1BF',
-        },
-         TextoBotao:{
-            textAlign: 'center',
-            color: '#fff',
-            fontSize: RFValue(13),
-        },
+      container:{
+        display: 'flex',
+        alignItems: 'center',
+        paddingTop: '15%',
+        width: '100%',
+        height: '100%'
+    },
+    subContainer:{
+        padding: 10,
+        display: 'flex',
+        alignItems: 'center',
+        width: '80%',
+        top: 20
+        // backgroundColor: '#DCDC',
+    },
+    DivHeader:{
+        display: 'flex',
+        alignItems: 'center',
+        width: '100%',
+        padding: 10,
+        // backgroundColor: 'red'
+    },
+    SubDivHeader: {
+      display: 'flex',
+      alignItems: 'center',
+      flexDirection: 'row'
+    },
+    TextHeader:{
+        color: '#000',
+        fontWeight: '900',
+        fontSize: RFValue(35),
+        fontStyle: 'italic',
+        marginLeft: 10
+    },
+    corda:{
+        backgroundColor: '#000',
+        height: 1,
+        width: '100%',
+    },
+    DivLogo: {
+        display: 'flex',
+        alignItems: 'center',
+        width: 32,
+        height: 32,
+        borderRadius: 34,
+        borderWidth: 2
+    },
+    logoImg: {
+        top: -2,
+        width: 24,
+        height: 24,
+    },
+    logotexto: {
+        marginTop: 10,
+        color: "#000",
+        fontWeight: 'bold',
+    },
+    InputIcon: {
+        // backgroundColor: 'yellow',
+        marginRight: 5
+    },
+    InputDesc: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        padding: 5,
+        // backgroundColor: 'red',
+        width: '100%'
+    },
+    InputDescText: {
+        fontStyle: 'italic',
+        fontWeight: '600',
+        fontSize: RFValue(13),
+    },
+    DivInput: {
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '5%',
+        flexDirection: 'row',
+        width: '100%',
+        // backgroundColor: 'purple'
+    },
+    Input: {
+        padding: 5,
+        paddingLeft: 10,
+        borderRadius: 10,
+        width: '100%',
+        backgroundColor: '#E0E0E0',
+        color: '#000',
+        borderColor: "#20232a",
+    },
+    botao: {
+        padding: 10,
+        borderRadius: 10,
+        marginTop: 15,
+        width: '100%'
+    },	
+    botaocadastro:{
+        backgroundColor:'#042A2B',
+    },
+    TextoBotao:{
+        textAlign: 'center',
+        color: '#fff',
+    }
         
-    });
+});
