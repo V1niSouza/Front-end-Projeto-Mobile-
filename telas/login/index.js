@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, TextInput, Image, TouchableHighlight, Alert, Ac
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons'
 import Cadastro from '../cadastro';
-import Home from '../home';
 import * as SecureStore from 'expo-secure-store';
 import { REACT_APP_API_URL } from '@env';
 
